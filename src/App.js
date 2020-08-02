@@ -14,6 +14,7 @@ function App() {
   const randomPage = () => {
     return Math.floor(Math.random() * (mxPages - offset));
   };
+  //to fecthing todos from jsonplaceholder
   const fetchTodos = async () => {
     let page = randomPage();
     axios
@@ -41,6 +42,8 @@ function App() {
       Cell: ({value})=> value === true ? "Done" : value === false ?  "Remaining" : "Active",
     }
   ], []);
+
+  //handle clicks on todos and changes the states accordingly.
   const handleClick = (e)=>{
     if(hoveredRow!==null){
       const newTodos = [...todos]
@@ -52,9 +55,12 @@ function App() {
   }
 
   const data = useMemo(()=>todos, [todos]);
+
   return (
     <Styles>
-      <h1 className="heading">Todo's Table</h1>
+      <h1 className="heading">
+        Todo's Table
+      </h1>
       <ReactTable
         columns = {columns}
         data = {data}

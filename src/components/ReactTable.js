@@ -1,7 +1,10 @@
 import { useTable } from 'react-table'
 import React from "react";
 
+// Create a default prop getter
 const defaultPropGetter = () => ({})
+
+//for creating react-table based upon props
 function ReactTable({
   columns,
   data,
